@@ -210,7 +210,7 @@ module netflow-v9 {
                 description
                     "Status bits are 00. Unknown";
             }
-            enum unknow-forwarded {
+            enum unknown-forwarded {
                 value "64";
                 description
                     "Status bits are 01 (Forwarded). Unknown";
@@ -225,7 +225,7 @@ module netflow-v9 {
                 description
                     "Status bits are 01 (Forwarded). Forwarded not Fragmented";
             }
-            enum unknow-dropped {
+            enum unknown-dropped {
                 value "128";
                 description
                     "Status bits are 10 (Dropped). Unknown";
