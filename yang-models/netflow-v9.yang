@@ -648,7 +648,7 @@ module netflow-v9 {
 
         leaf snmp-in {
             type int32 {
-                range "0..2147483647";
+                range "1..2147483647";
             }
             description
                 "Input interface index";
@@ -660,7 +660,7 @@ module netflow-v9 {
 
         leaf snmp-out {
             type int32 {
-                range "0..2147483647";
+                range "1..2147483647";
             }
             description
                 "Output interface index";
