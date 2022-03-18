@@ -126,6 +126,24 @@ module: netflow-v9
 
 ```
 
+## YANG model for aggregated data
+
+Also in the `yang-models` directory, the YANG model created for the Netflow data aggregation application has been included. As can be seen, an augmentation of the original YANG model has been created by taking advantage of the features to extend or modify other existing models offered by the YANG language. In this case, new metrics have been generated from data collected in a Netflow version 9 export package. Specifically, the flow duration, the number of bytes per second, the number of packets per second and the number of bytes per packet associated with an IP flow have been developed. For the last three metrics, both incoming and outgoing metrics have been calculated. The reason why it has been decided to calculate these metrics is because they can be further used in deep learning algorithms to detect cybersecurity threats. As with the original YANG model, the tree diagram of this new model is shown below (augmented part only)
+
+
+### YANG tree diagram
+```
+module: netflow-v9-aggregated
+  augment /net-v9:netflow/net-v9:export-packet/net-v9:flow-data-record:
+    +--ro flow-duration?          yang:timestamp
+    +--ro bytes-in-per-second?    per-decimal
+    +--ro bytes-out-per-second?   per-decimal
+    +--ro pkts-in-per-second?     per-decimal
+    +--ro pkts-out-per-second?    per-decimal
+    +--ro bytes-in-per-packet?    per-decimal
+    +--ro bytes-out-per-packet?   per-decimal
+    
+```
 
 ### References
 
