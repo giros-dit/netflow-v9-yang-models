@@ -10,7 +10,7 @@ In the directory called `yang-models` you can find the YANG model developed for 
 ```
 module: netflow-v9
   +--ro netflow
-     +--ro collector-goflow2
+     +--ro collector
      |  +--ro time-received           yang:timestamp
      |  +--ro sampler-address?        inet:ipv4-address
      |  +--ro sampler-address-ipv6?   inet:ipv6-address
