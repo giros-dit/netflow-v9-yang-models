@@ -8,9 +8,9 @@ In the directory called `yang-models` you can find the YANG model developed for 
 
 ### YANG tree diagram
 ```
-module: netflow-v9
+odule: netflow-v9
   +--ro netflow
-     +--ro collector
+     +--ro collector-goflow2
      |  +--ro time-received           yang:timestamp
      |  +--ro sampler-address?        inet:ipv4-address
      |  +--ro sampler-address-ipv6?   inet:ipv6-address
@@ -37,8 +37,8 @@ module: netflow-v9
            +--ro snmp-out?              int32
            +--ro bytes-out-mul?         yang:counter64
            +--ro pkts-out-mul?          yang:counter64
-           +--ro first-switched         yang:timestamp
-           +--ro last-switched          yang:timestamp
+           +--ro first-switched         uint64
+           +--ro last-switched          uint64
            +--ro min-pkt-len?           uint16
            +--ro max-pkt-len?           uint16
            +--ro icmp-type?             uint16
@@ -123,7 +123,6 @@ module: netflow-v9
               +--ro offset?   uint16
               +--ro size?     uint16
               +--ro data?     string
-
 ```
 
 ## YANG model for aggregated data
@@ -134,17 +133,17 @@ Also in the `yang-models` directory, the YANG model created for the Netflow data
 ### YANG tree diagram
 
 ```
-
-module: netflow-v9-aggregated
+module: netflow-v9-agg
   augment /net-v9:netflow/net-v9:export-packet/net-v9:flow-data-record:
-    +--ro flow-duration?          yang:timestamp
-    +--ro bytes-in-per-second?    per-decimal
-    +--ro bytes-out-per-second?   per-decimal
-    +--ro pkts-in-per-second?     per-decimal
-    +--ro pkts-out-per-second?    per-decimal
-    +--ro bytes-in-per-packet?    per-decimal
-    +--ro bytes-out-per-packet?   per-decimal
-    
+    +--ro flow-duration?            yang:timestamp
+    +--ro bytes-in-per-second?      per-decimal
+    +--ro bytes-out-per-second?     per-decimal
+    +--ro pkts-in-per-second?       per-decimal
+    +--ro pkts-out-per-second?      per-decimal
+    +--ro bytes-in-per-packet?      per-decimal
+    +--ro bytes-out-per-packet?     per-decimal
+    +--ro ratio-bytes-in-per-out?   per-decimal
+    +--ro ratio-pkts-in-per-out?    per-decimal
 ```
 
 ### References
