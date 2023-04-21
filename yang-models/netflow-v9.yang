@@ -648,7 +648,7 @@ module netflow-v9 {
 
         leaf snmp-in {
             type int32 {
-                range "1..2147483647";
+                range "0..2147483647";
             }
             description
                 "Input interface index";
@@ -660,7 +660,7 @@ module netflow-v9 {
 
         leaf snmp-out {
             type int32 {
-                range "1..2147483647";
+                range "0..2147483647";
             }
             description
                 "Output interface index";
@@ -696,7 +696,7 @@ module netflow-v9 {
         leaf first-switched {
             mandatory true;
 
-            type yang:timestamp;
+            type uint64; 
             units "milliseconds";
             description
                 "System uptime at which the first packet of this flow was switched";
@@ -708,7 +708,7 @@ module netflow-v9 {
         leaf last-switched {
             mandatory true;
 
-            type yang:timestamp;
+            type uint64;
             units "milliseconds";
             description
                 "System uptime at which the last packet of this flow was switched";
@@ -1525,6 +1525,7 @@ module netflow-v9 {
                 mandatory true;
 
                 type yang:timestamp;
+                units "seconds";
                 description
                     "Timestamp of when a NetFlow Export Packet was received at the collector";
 
@@ -1590,8 +1591,10 @@ module netflow-v9 {
 
             leaf unix-seconds {
                 type yang:timestamp;
+                units "seconds";
                 description
-                    "Seconds since 0000 Coordinated Universal Time (UTC) 1970";
+                    "Seconds since 0000 Coordinated Universal Time (UTC) 1970 at which 
+		    the Export Packet leaves the Exporter.";
                 reference
                     "Cisco Systems, NetFlow Version 9 Flow-Record Format, (2011)";
 
