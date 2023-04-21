@@ -104,6 +104,20 @@ module netflow-v9-agg {
             "Outgoing counter for the number of bytes per packet associated with an IP flow.";
       }
 
+      leaf ratio-bytes-in-per-out {
+          type per-decimal;
+          units "bytes";
+          description
+            "Counter for the ratio between the incoming and the outcoming bytes.";
+      }
+
+      leaf ratio-pkts-in-per-out {
+          type per-decimal;
+          units "packets";
+          description
+            "Counter for the ratio between the incoming and the outcoming packets";
+      }
+
   }
 
 }
